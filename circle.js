@@ -4,6 +4,7 @@ var circle = function(x,y,r,vx,vy){
     this.r=r;
     this.vx = vx;
     this.vy = vy;
+    this.isFill = false;
     this.move = function(minx,miny,maxx,maxy){
         this.x += this.vx;
         this.y += this.vy;
@@ -26,5 +27,8 @@ var circle = function(x,y,r,vx,vy){
             this.y=maxy-this.r;
             this.vy=-this.vy;
         }
+    }
+    this.contain = function(x,y){
+        return (this.x-x ) * (this.x-x ) + (this.y-y) * (this.y-y) <= this.r*this.r;
     }
 }
